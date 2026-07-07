@@ -383,3 +383,15 @@ button:disabled{
         padding:28px 22px;
     }
 }
+.admin-link{
+    display:block;
+    text-align:center;
+    color:gold;
+    margin:18px 0 12px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.admin-link:hover{
+    text-decoration:underline;
+}
