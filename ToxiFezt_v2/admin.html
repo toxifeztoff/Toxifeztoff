@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - ToxiFezt</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container" id="loginBox">
+    <img src="img/logo.png" class="logo" alt="ToxiFezt Logo">
+    <p class="subtitulo">Panel de Administración</p>
+
+    <input type="email" id="email" placeholder="Correo admin">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button id="loginBtn">Iniciar sesión</button>
+    <a href="index.html" class="admin-link">Volver al registro</a>
+</div>
+
+<div class="container admin-panel" id="adminBox" style="display:none;">
+    <img src="img/logo.png" class="logo" alt="ToxiFezt Logo">
+    <p class="subtitulo">Panel Admin</p>
+
+    <div class="dashboard">
+        <div class="dash-card">
+            <h3>Registrados</h3>
+            <h2><span id="total">0</span> / <span id="cuposDash">70</span></h2>
+        </div>
+        <div class="dash-card">
+            <h3>Disponibles</h3>
+            <h2 id="disponibles">70</h2>
+        </div>
+    </div>
+
+    <div class="progress-box">
+        <div class="progress-info">
+            <span>Progreso</span>
+            <span id="porcentaje">0%</span>
+        </div>
+        <div class="progress-bar">
+            <div id="barraProgreso"></div>
+        </div>
+    </div>
+
+    <div class="config-box">
+        <h3>⚙️ Configuración del evento</h3>
+
+        <label>Nombre del evento</label>
+        <input type="text" id="configNombre" placeholder="Nombre del evento">
+
+        <label>Cupos disponibles</label>
+        <input type="number" id="configCupos" placeholder="70" min="1">
+
+        <label class="switch-line">
+            <input type="checkbox" id="configActivo">
+            Registro activo
+        </label>
+
+        <button id="guardarConfigBtn">Guardar configuración</button>
+    </div>
+
+    <input type="text" id="buscar" placeholder="Buscar por nombre o Instagram">
+
+    <div class="admin-actions">
+        <button id="exportarBtn">📥 Exportar Excel</button>
+        <button id="borrarTodoBtn" class="danger-btn">🗑 Borrar todos</button>
+    </div>
+
+    <div id="lista"></div>
+
+    <button id="logoutBtn">Cerrar sesión</button>
+</div>
+
+<div class="modal" id="modalEliminar">
+    <div class="modal-content">
+        <h2>⚠️ Confirmar eliminación</h2>
+        <p id="textoEliminar">¿Seguro que quieres eliminar este registro?</p>
+        <div class="modal-actions">
+            <button id="cancelarEliminar">Cancelar</button>
+            <button id="confirmarEliminar" class="danger-btn">Eliminar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalBorrarTodo">
+    <div class="modal-content">
+        <h2>🚨 Borrar todos</h2>
+        <p>Esto eliminará todos los registros de esta fiesta.</p>
+        <p>Esta acción no se puede deshacer.</p>
+        <div class="modal-actions">
+            <button id="cancelarBorrarTodo">Cancelar</button>
+            <button id="confirmarBorrarTodo" class="danger-btn">Sí, borrar todo</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script type="module" src="js/admin.js"></script>
+
+</body>
+</html>
